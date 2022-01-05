@@ -69,6 +69,12 @@ const initialState = {
                             time: '5:34 AM',
                             content: '방가방가 여러분~!'
                         },
+                        {
+                            id: 6666666,
+                            name: '병률짱',
+                            time: '0:00 AM',
+                            content: '에취!'
+                        },
                     ]
                 },
             ]
