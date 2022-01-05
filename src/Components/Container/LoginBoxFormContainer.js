@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { useState } from "react";
 import Modal from 'react-modal';
 import Main from "../../Main";
+import { useDispatch } from "react-redux";
+import { setMyid } from "../modules/roomAndChannel";
 
 const FormControl = styled(Form.Control)`
     width: 400px;
@@ -16,12 +18,16 @@ const Modal2 = styled(Modal)`
 `
 
 const LoginBoxFormContainer = () => {
+    const dispatch = useDispatch();
+
     const [ID, setID] = useState('');
     const [PW, setPW] = useState('');
     const [isOpen, setIsOpen] = useState(false);
 
     const LoginButtonClick = () => {
         console.log('loginButtonClick : ' + ID + '/' + PW);
+
+        dispatch(setMyid(ID));
         setIsOpen(true);
     }
 

@@ -1,6 +1,8 @@
 import MainChatInputPresenter from "../Presenter/MainChatInputPresenter";
 import styled from "styled-components";
 import { Button } from "react-bootstrap";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const TextInput = styled.textarea`
   width: 90%;
@@ -37,12 +39,29 @@ const ButtonResizing = styled(Button)`
 
 
 const MainChatInputContainer = ({ room, channel }) => {
+    const store = useSelector(state => state);
+    const [Msg, setMsg] = useState('');
+
+    const changeMsg = (e) => {
+        setMsg(e.target.value);
+    }
+
+    const sendMsg = () => {
+        store.socket.emit("message", {
+            channel_name: store.rooms[store.selectRoom - 1].name,
+            room_name: store.rooms[store.selectRoom - 1].channels[store.selectChannel - 1].name,
+            user_id: store.myid,
+            user_name: 'sangchovy',
+            content: Msg,
+        });
+    }
+
     return (
         <MainChatInputPresenter>
             {room !== 0 && channel !== 0 &&
                 <>
-                    <TextInput />
-                    <ButtonResizing variant="primary">send</ButtonResizing>{' '}
+                    <TextInput onChange={changeMsg} />
+                    <ButtonResizing variant="primary" onClick={sendMsg}>send</ButtonResizing>{' '}
                 </>}
         </MainChatInputPresenter>
     )

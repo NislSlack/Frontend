@@ -5,8 +5,8 @@ const OpponentBubbleContainer = ({ log }) => {
 
     return (
         <BubbleBox>
-            <OpponentName>{log.name}</OpponentName>
-            <OpponentDate>{log.time}</OpponentDate>
+            <OpponentName>{log.user_name}</OpponentName>
+            <OpponentDate>{log.created}</OpponentDate>
             <OpponentContent>{log.content}</OpponentContent>
         </BubbleBox>
     )

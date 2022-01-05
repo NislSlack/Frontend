@@ -9,7 +9,7 @@ const OpponentName = styled.p`
 
 const OpponentDate = styled.p`
     position: absolute;
-    left: 100px;
+    left: 150px;
     top:30px;
     font-size:15px;
 `
@@ -30,7 +30,7 @@ const MyName = styled.p`
 
 const MyDate = styled.p`
     position: absolute;
-    right: 100px;
+    right: 150px;
     top:30px;
     font-size:15px;
 `
