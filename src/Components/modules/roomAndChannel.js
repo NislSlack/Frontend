@@ -1,4 +1,5 @@
 import produce from 'immer';
+import { pullAllRoom } from '../pullDataFunc/pullData';
 
 const INIT_SOCKET = 'roomAndChannel/INIT_SOCKET';
 const SET_MYID = 'roomAndChannel/SET_MYID';
@@ -6,7 +7,16 @@ const ADD_ROOM = 'roomAndChannel/ADD_ROOM';
 const SELECT_ROOM = 'roomAndChannel/SELECT_ROOM';
 const ADD_CHANNEL = 'roomAndChannel/ADD_CHANNEL';
 const SELECT_CHANNEL = 'roomAndChannel/SELECT_CHANNEL';
-const RECEIVE_CHAT = 'roomAndChannel/RECEIVECHAT';
+const RECEIVE_CHAT = 'roomAndChannel/RECEIVE_CHAT';
+const PULL_ROOM = 'roomAndChannel/PULL_ROOM';
+
+export const pullRoom = () => {
+    const rooms = pullAllRoom();
+    return ({
+        type: PULL_ROOM,
+        rooms: rooms,
+    })
+}
 
 export const initSocket = socket => ({
     type: INIT_SOCKET,
@@ -120,6 +130,9 @@ export default function roomAndChannel(state = initialState, action) {
     switch (action.type) {
         case INIT_SOCKET:
             return { ...state, socket: action.socket }
+        case PULL_ROOM:
+            console.log(action.rooms)
+            return { ...state, }
         case SET_MYID:
             return { ...state, myid: action.id }
         case ADD_ROOM:

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const MainChatChannelNamePresenter = styled.div`
     width: 100%;
-    height: 70px;
+    height: 8%;
 
     border-bottom:solid 1px black;
     display: flex;

@@ -6,7 +6,7 @@ const MainChatInputPresenter = styled.div`
     justify-content: center;
     
     width: 100%;
-    height: 142px;
+    height: 14%;
 `
 
 export default MainChatInputPresenter;

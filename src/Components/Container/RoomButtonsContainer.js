@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { selectRoom } from "../modules/roomAndChannel";
 
 const RoomButtonsConatiner = ({ store, RoomPlus, show, handleClose, addRoomFunc }) => {
-
     const [roomName, setRoomName] = useState('');
     const dispatch = useDispatch();
 
